@@ -16,6 +16,10 @@ This project demonstrates how to build a completely private forex trading platfo
 - **Currency pair selection** is encrypted (trading focus is hidden)
 - **Only authorized parties** can access encrypted data
 
+Live :https://private-forex-trading-platform.vercel.app/
+
+Video :https://streamable.com/zx221z demo1.mp4 demo2.mp4
+
 ## 🎯 Key FHEVM Concepts Demonstrated
 
 ### 1. **Encrypted Data Types**
