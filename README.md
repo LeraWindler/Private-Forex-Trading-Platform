@@ -18,7 +18,8 @@ This project demonstrates how to build a completely private forex trading platfo
 
 Live :https://private-forex-trading-platform.vercel.app/
 
-Video :https://youtu.be/xkPui1alkOYdemo1.mp4 demo2.mp4
+Video :https://youtu.be/xkPui1alkOY   
+
 
 ## 🎯 Key FHEVM Concepts Demonstrated
 
