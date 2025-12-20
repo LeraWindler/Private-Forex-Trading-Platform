@@ -1,473 +1,240 @@
-# 🚀 Quick Start Guide
+# Quick Start Guide - FHEVM Examples Hub
 
-> Get up and running with FHEVM Private Forex Trading in 5 minutes!
-
----
+Get started with FHEVM Examples Hub in 5 minutes!
 
 ## Prerequisites
 
-Make sure you have installed:
+- Node.js 20+
+- npm 7+
+- Git
 
-- ✅ Node.js >= 18.0.0
-- ✅ npm >= 9.0.0
-- ✅ Git
-- ✅ MetaMask (for frontend)
+## Installation
 
-Check versions:
 ```bash
-node --version  # Should be >= 18
-npm --version   # Should be >= 9
+# Navigate to project directory
+cd D:\\\PrivacyPharma
+
+# Install root dependencies (for automation tools)
+npm install
 ```
 
----
+## Generate Your First Example
 
-## 📦 Step 1: Installation (1 minute)
+### Option 1: Single Example (Recommended for Learning)
 
 ```bash
-# Clone the repository
-git clone <your-repo-url>
-cd fhevm-private-forex-trading
+# Generate the FHE Counter example
+npm run create:example fhe-counter ./output/my-first-example
+
+# Navigate to generated project
+cd output/my-first-example
 
 # Install dependencies
 npm install
 
-# Copy environment file
-cp .env.example .env
-```
-
-**Expected Output:**
-```
-✓ Dependencies installed successfully
-✓ Found 0 vulnerabilities
-```
-
----
-
-## ⚙️ Step 2: Configuration (30 seconds)
-
-Edit `.env` file (optional for local testing):
-
-```bash
-# For local Hardhat network (default)
-# No configuration needed!
-
-# For testnet deployment (optional)
-SEPOLIA_RPC_URL=https://sepolia.infura.io/v3/YOUR-PROJECT-ID
-ZAMA_RPC_URL=https://devnet.zama.ai
-PRIVATE_KEY=your_private_key_here
-```
-
----
-
-## 🔨 Step 3: Compile Contracts (30 seconds)
-
-```bash
+# Compile contracts
 npm run compile
+
+# Run tests
+npm run test
 ```
 
-**Expected Output:**
-```
-Compiled 1 Solidity file successfully
-✓ PrivateForexTrading compiled
-```
-
----
-
-## 🧪 Step 4: Run Tests (1 minute)
+### Option 2: Category Project (Multiple Examples)
 
 ```bash
-npm test
+# Generate all basic examples together
+ts-node scripts/create-fhevm-category.ts basic ./output/basic-examples
+
+# Navigate to generated project
+cd output/basic-examples
+
+# Install, compile, and test
+npm install && npm run compile && npm run test
 ```
 
-**Expected Output:**
-```
-  PrivateForexTrading
-    Deployment
-      ✓ Should set the correct owner
-      ✓ Should initialize with session 1
-      ✓ Should have no active session initially
-    Trader Registration
-      ✓ Should allow a trader to register
-      ✓ Should prevent double registration
-      ... (50+ more tests)
+## Available Examples
 
-  50 passing (4s)
-```
-
----
-
-## 🚀 Step 5: Deploy Contract (1 minute)
-
-### Local Deployment
-
-**Terminal 1 - Start Local Node:**
-```bash
-npx hardhat node
-```
-
-**Terminal 2 - Deploy:**
-```bash
-npm run deploy
-```
-
-**Expected Output:**
-```
-🚀 Starting PrivateForexTrading deployment...
-📝 Deploying with account: 0x...
-💰 Account balance: 10000.0 ETH
-
-✅ Contract deployed successfully!
-📍 Contract address: 0x5FbDB2315678afecb367f032d93F642f64180aa3
-
-📚 Next Steps:
-1. Save the contract address: 0x5FbDB2315678afecb367f032d93F642f64180aa3
-2. Update your .env file with CONTRACT_ADDRESS
-```
-
-### Save Contract Address
-
-Add to your `.env`:
-```
-CONTRACT_ADDRESS=0x5FbDB2315678afecb367f032d93F642f64180aa3
-```
-
----
-
-## 💻 Step 6: Launch Frontend (30 seconds)
+Run this command to see all available examples:
 
 ```bash
-npm run frontend
+ts-node scripts/create-fhevm-example.ts --help
 ```
 
-**Open in browser:** http://localhost:3000
+### Basic Examples
 
-You should see:
-- 🎨 Professional gradient UI
-- 🔗 Wallet connection button
-- 📊 Trading dashboard
-- 📝 Order placement form
+- `fhe-counter` - Simple encrypted counter
+- `encrypt-single-value` - Single value encryption
+- `encrypt-multiple-values` - Batch encryption
+- `user-decrypt-single` - User decryption
+- `public-decrypt-single` - Public decryption
+- `fhe-arithmetic` - Arithmetic operations (add, sub, mul)
+- `fhe-comparison` - Comparison operations (eq, lt, gt, etc.)
+- `access-control` - Access control patterns
+- `input-proofs` - Input proof explanation
+- `handles` - Understanding handles
 
----
+### Advanced Examples
 
-## 🎮 Step 7: Interact with Contract (1 minute)
+- `privacy-pharmaceutical` - Complete pharmaceutical procurement system
 
-### Using Frontend
+## Available Categories
 
-1. **Connect Wallet**
-   - Click "Connect Wallet"
-   - Approve MetaMask connection
-   - See your address displayed
-
-2. **Load Contract**
-   - Enter contract address (from deployment)
-   - Click "Load Contract"
-   - Contract status will show
-
-3. **Register as Trader**
-   - Enter initial balance: `10000`
-   - Click "Register as Trader"
-   - Approve transaction in MetaMask
-   - Wait for confirmation
-
-4. **Start Trading Session** (as owner)
-   - Enter forex rates (defaults provided)
-   - Click "Start Trading Session"
-   - Approve transaction
-   - Session becomes active
-
-5. **Place Private Order**
-   - Select currency pair
-   - Enter amount: `1000`
-   - Enter target price: `11000`
-   - Click "Place Private Order"
-   - Order is placed with encrypted details!
-
-### Using Scripts
+Run this command to see all categories:
 
 ```bash
-# Interact programmatically
-export CONTRACT_ADDRESS=0x5FbDB2315678afecb367f032d93F642f64180aa3
-npm run interact
+ts-node scripts/create-fhevm-category.ts --help
 ```
 
-**Output shows:**
-- ✅ Contract status
-- ✅ Trader registration
-- ✅ Session creation
-- ✅ Order placement
-- ✅ Order execution
+Categories:
+- `basic` - Core FHEVM examples
+- `encryption` - Encryption patterns
+- `decryption` - Decryption patterns
+- `operations` - FHE operations
+- `concepts` - FHEVM concepts
+- `advanced` - Real-world applications
 
----
-
-## 📚 Step 8: Generate Documentation (30 seconds)
+## Generate Documentation
 
 ```bash
-npm run docs:generate
+# Generate docs for a single example
+npm run generate:docs fhe-counter
+
+# Generate docs for all examples
+npm run generate:all-docs
+
+# View generated documentation
+cat examples/fhe-counter.md
 ```
 
-**Generated files in `docs/`:**
-- `index.md` - Documentation home
-- `quick-start.md` - Setup guide
-- `concepts-guide.md` - FHEVM concepts
-- `testing-guide.md` - Test patterns
-- `privateforextrading.md` - Contract reference
-- `SUMMARY.md` - GitBook TOC
+## Project Structure
 
-**View documentation:**
-```bash
-# Install a markdown viewer or use GitHub
-cat docs/index.md
+```
+PrivacyPharma/
+├── fhevm-hardhat-template/    # Base template
+├── contracts/                 # Example contracts
+│   ├── basic/                 # Basic examples
+│   └── advanced/              # Advanced examples
+├── test/                      # Test files
+├── scripts/                   # Automation tools
+│   ├── create-fhevm-example.ts      # Generate single example
+│   ├── create-fhevm-category.ts     # Generate category project
+│   └── generate-docs.ts             # Generate documentation
+├── examples/                  # Generated documentation
+├── PROJECT_README.md          # Full documentation
+└── DEVELOPER_GUIDE.md         # Contributor guide
 ```
 
----
+## Next Steps
 
-## 🛠️ Step 9: Create New Example (Optional)
+### For Learners
 
-```bash
-npm run example:create -- --name "MyExample" --category "encryption"
-```
+1. Start with `fhe-counter` example
+2. Try `encrypt-single-value` to understand encryption
+3. Learn about `access-control` patterns
+4. Explore `fhe-arithmetic` operations
+5. Study the advanced `privacy-pharmaceutical` example
 
-**Creates:**
-```
-../fhevm-myexample/
-├── contracts/
-├── test/
-├── scripts/
-├── tools/
-├── docs/
-└── README.md (customized)
-```
+### For Developers
 
----
+1. Read [DEVELOPER_GUIDE.md](DEVELOPER_GUIDE.md)
+2. Explore existing contracts in `contracts/`
+3. Study tests in `test/`
+4. Add your own examples following the guide
 
-## ✅ Verification Checklist
+### For Contributors
 
-After completing all steps, verify:
+1. Fork the repository
+2. Create new examples following patterns in `contracts/basic/`
+3. Write comprehensive tests
+4. Update automation scripts
+5. Submit pull request
 
-- [ ] ✅ Dependencies installed (`npm install`)
-- [ ] ✅ Contracts compile (`npm run compile`)
-- [ ] ✅ All tests pass (`npm test`)
-- [ ] ✅ Contract deploys (`npm run deploy`)
-- [ ] ✅ Frontend loads (http://localhost:3000)
-- [ ] ✅ Can connect wallet
-- [ ] ✅ Can register as trader
-- [ ] ✅ Documentation generates (`npm run docs:generate`)
-
-If all checked, you're ready to go! 🎉
-
----
-
-## 🐛 Troubleshooting
-
-### Tests Failing
+## Common Commands
 
 ```bash
-# Clean and reinstall
-rm -rf node_modules package-lock.json
+# Generate example
+npm run create:example <example-name> <output-dir>
+
+# Generate category
+ts-node scripts/create-fhevm-category.ts <category> <output-dir>
+
+# Generate docs
+npm run generate:docs <example-name>
+npm run generate:all-docs
+
+# Test base template
+cd fhevm-hardhat-template && npm install && npm test
+```
+
+## Example: Complete Workflow
+
+```bash
+# 1. Generate FHE Counter example
+npm run create:example fhe-counter ./my-counter
+
+# 2. Navigate to project
+cd my-counter
+
+# 3. Install dependencies
 npm install
-npm test
+
+# 4. Compile contracts
+npm run compile
+
+# 5. Run tests
+npm run test
+
+# 6. Deploy to local network (optional)
+npx hardhat node  # In one terminal
+npx hardhat deploy --network localhost  # In another terminal
+
+# 7. Deploy to Sepolia (optional)
+npx hardhat vars set MNEMONIC
+npx hardhat vars set INFURA_API_KEY
+npx hardhat deploy --network sepolia
 ```
 
-### Compilation Errors
+## Troubleshooting
 
+### Issue: TypeScript errors in automation scripts
+
+**Solution:**
 ```bash
-# Clear cache
-npx hardhat clean
+npm install
+```
+
+### Issue: Contract compilation fails
+
+**Solution:**
+```bash
+cd output/your-example
+npm install
 npm run compile
 ```
 
-### Deployment Issues
+### Issue: Tests fail
 
-**Problem:** "Insufficient funds"
-**Solution:** Make sure deployer account has ETH
+**Solution:**
+Check that all dependencies are installed and contracts are compiled.
 
-**Problem:** "Contract address not set"
-**Solution:** Add `CONTRACT_ADDRESS` to `.env`
+## Resources
 
-**Problem:** "Network error"
-**Solution:** Check Hardhat node is running (Terminal 1)
+- **Full Documentation**: [PROJECT_README.md](PROJECT_README.md)
+- **Developer Guide**: [DEVELOPER_GUIDE.md](DEVELOPER_GUIDE.md)
+- **Submission Details**: [SUBMISSION_OVERVIEW.md](SUBMISSION_OVERVIEW.md)
+- **FHEVM Concepts**: [FHEVM_CONCEPTS.md](FHEVM_CONCEPTS.md)
+- **Examples Documentation**: [examples/README.md](examples/README.md)
 
-### Frontend Issues
+## Support
 
-**Problem:** "Failed to load ethers.js"
-**Solution:** Reload page, library will load from fallback CDN
+- **FHEVM Documentation**: https://docs.zama.ai/fhevm
+- **Zama Discord**: https://discord.com/invite/zama
+- **Zama Forum**: https://community.zama.ai
 
-**Problem:** "Cannot connect wallet"
-**Solution:** Install MetaMask extension
+---
 
-**Problem:** "Wrong network"
-**Solution:** Switch MetaMask to Localhost 8545
-
-### Port Already in Use
+**Ready to build privacy-preserving smart contracts? Start now!**
 
 ```bash
-# Frontend
-# Change port in package.json or kill existing process
-lsof -ti:3000 | xargs kill -9  # Mac/Linux
-netstat -ano | findstr :3000   # Windows
-
-# Hardhat node
-# Change port in hardhat.config.ts or use different terminal
+npm run create:example fhe-counter ./my-first-fhevm-project
 ```
-
----
-
-## 📖 Next Steps
-
-### Learn More
-
-1. **Read the Documentation**
-   ```bash
-   # View generated docs
-   ls docs/
-   ```
-
-2. **Study the Contract**
-   ```bash
-   # View contract with comments
-   cat contracts/PrivateForexTrading.sol
-   ```
-
-3. **Explore Tests**
-   ```bash
-   # View test patterns
-   cat test/PrivateForexTrading.test.ts
-   ```
-
-### Customize
-
-1. **Modify Contract**
-   - Edit `contracts/PrivateForexTrading.sol`
-   - Add new features
-   - Compile: `npm run compile`
-   - Test: `npm test`
-
-2. **Add Tests**
-   - Edit `test/PrivateForexTrading.test.ts`
-   - Add new test cases
-   - Run: `npm test`
-
-3. **Customize Frontend**
-   - Edit `frontend/index.html`
-   - Add new UI elements
-   - Test: `npm run frontend`
-
-### Deploy to Testnet
-
-1. **Get Testnet ETH**
-   - Sepolia Faucet: https://sepoliafaucet.com/
-   - Get test ETH for your address
-
-2. **Configure Network**
-   ```bash
-   # Edit .env
-   SEPOLIA_RPC_URL=https://sepolia.infura.io/v3/YOUR-KEY
-   PRIVATE_KEY=your_private_key
-   ```
-
-3. **Deploy**
-   ```bash
-   npm run deploy:sepolia
-   ```
-
-4. **Verify**
-   - View on Etherscan: https://sepolia.etherscan.io/
-
----
-
-## 🎓 Learning Path
-
-### Beginner
-
-1. ✅ Complete this Quick Start
-2. 📖 Read `docs/concepts-guide.md`
-3. 🧪 Run tests and understand output
-4. 💻 Use frontend to interact
-
-### Intermediate
-
-1. 📝 Study contract code in detail
-2. 🧪 Add new test cases
-3. 🔧 Modify contract features
-4. 🚀 Deploy to testnet
-
-### Advanced
-
-1. 🏗️ Create new FHEVM examples
-2. 📚 Contribute to documentation
-3. 🔐 Add advanced features
-4. 🎯 Optimize gas usage
-
----
-
-## 📞 Get Help
-
-### Documentation
-
-- **README**: Project overview
-- **CONTRIBUTING**: How to contribute
-- **docs/**: Complete documentation
-
-### Community
-
-- **GitHub Issues**: Bug reports and questions
-- **Zama Discord**: https://discord.gg/zama
-- **FHEVM Docs**: https://docs.zama.ai/fhevm
-
-### Resources
-
-- **Hardhat**: https://hardhat.org/docs
-- **Ethers.js**: https://docs.ethers.org/
-- **Solidity**: https://docs.soliditylang.org/
-
----
-
-## 🎉 Congratulations!
-
-You've successfully:
-- ✅ Installed the project
-- ✅ Compiled the contracts
-- ✅ Run comprehensive tests
-- ✅ Deployed to local network
-- ✅ Interacted via frontend
-- ✅ Generated documentation
-
-**You're now ready to:**
-- Build your own FHEVM applications
-- Contribute to this project
-- Learn advanced FHE patterns
-- Deploy to production networks
-
----
-
-## 🚀 Quick Command Reference
-
-```bash
-# Development
-npm install           # Install dependencies
-npm run compile       # Compile contracts
-npm test             # Run tests
-npm run lint         # Lint code
-npm run format       # Format code
-
-# Deployment
-npx hardhat node     # Start local node
-npm run deploy       # Deploy locally
-npm run deploy:zama  # Deploy to Zama
-
-# Interaction
-npm run interact     # Interact with contract
-npm run frontend     # Launch frontend
-
-# Documentation
-npm run docs:generate  # Generate docs
-
-# Tools
-npm run example:create  # Create new example
-```
-
----
-
-**Happy Building with FHEVM! 🔐✨**
-
-*Build privacy-preserving applications that matter!*
